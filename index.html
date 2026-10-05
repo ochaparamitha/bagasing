@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Belajar Bahasa Banjar SD - Pamainan Bagasing</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for Child-Friendly UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    colors: {
+                        banjar: {
+                            yellow: '#F59E0B',
+                            amber: '#D97706',
+                            green: '#059669',
+                            emerald: '#10B981',
+                            blue: '#0284C7',
+                            red: '#EF4444',
+                            bg: '#FEF3C7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            height: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FEF3C7;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100dvh;
+        }
+        .font-kids {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+        .btn-bounce:active {
+            transform: scale(0.95);
+        }
+        .custom-shadow-lg {
+            box-shadow: 0 8px 0 0 rgba(180, 83, 9, 0.4);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(3deg); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Prevent iOS auto-zoom on input focus which ruins layout */
+        input, select, textarea {
+            font-size: 16px !important;
+        }
+
+        /* Keyboard-friendly scrollable modal container */
+        .modal-scroll-overlay {
+            max-height: 85dvh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tab-locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-between max-w-md mx-auto bg-amber-50 shadow-2xl relative border-x-4 border-amber-300">
+
+    <header class="bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-500 text-white p-4 sticky top-0 z-40 rounded-b-2xl shadow-md border-b-4 border-amber-700">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 bg-white text-amber-600 rounded-2xl flex items-center justify-center text-2xl font-black shadow border-2 border-amber-300 animate-float">
+                    🌀
+                </div>
+                <div>
+                    <h1 class="font-kids text-lg font-bold leading-tight tracking-wide text-yellow-100">Bahasa Banjar SD</h1>
+                    <p class="text-xs text-amber-100 font-medium">Bab 3: Pamainan Bagasing</p>
+                </div>
+            </div>
+            <!-- Sound Toggle Button -->
+            <button id="soundToggleBtn" onclick="toggleSound()" class="w-10 h-10 bg-amber-700 hover:bg-amber-800 text-amber-100 rounded-xl flex items-center justify-center text-lg btn-bounce shadow border border-amber-500" title="Suara On/Off">
+                <i id="soundIcon" class="fas fa-volume-up"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="p-4 flex-grow pb-32">
+
+        <!-- SECTION 1: MATERI PEMBELAJARAN -->
+        <section id="sec-materi" class="space-y-4">
+            <div class="bg-amber-100 border-2 border-amber-300 p-3.5 rounded-2xl flex items-center space-x-3 shadow-sm">
+                <span class="text-3xl">📖</span>
+                <div>
+                    <h2 class="font-kids font-bold text-amber-900 text-base">Modul Bacaan Banjar</h2>
+                    <p class="text-xs text-amber-800 font-medium">Bacalakan teks di bawah ini lawan teliti lah!</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-5 border-2 border-amber-200 shadow-sm space-y-4">
+                <div class="text-center pb-3 border-b-2 border-dashed border-amber-200">
+                    <span class="bg-amber-500 text-white font-kids text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Materi Utama Kelas 6</span>
+                    <h3 class="font-kids text-2xl font-bold text-amber-800 mt-2">Bagasing</h3>
+                </div>
+
+                <!-- Paragraph Cards -->
+                <div class="space-y-3.5 text-sm text-slate-700 leading-relaxed">
+                    <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                        <p><strong>Bagasing</strong> adalah pamainan tradisional khas Kalimantan Selatan. Tembung bagasing baasal matan kata <em>gasing</em>. Gasing marupakan alat pamainan nang diulah matan kayu batang pohon, baputar wan baisi kasaimbangan di sabuting titik. Pamainan ini rancak dimainakan ulih kakanakan wan urang tuha.</p>
+                    </div>
+
+                    <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200 shadow-xs">
+                        <h4 class="font-bold text-emerald-800 font-kids mb-1.5 text-sm">🗺️ Sambatan Gasing di Daerah Lain:</h4>
+                        <ul class="list-disc list-inside text-xs space-y-1 text-emerald-950 font-medium">
+                            <li><strong>Jawa Barat & Jakarta:</strong> Gangsing atawa Panggal</li>
+                            <li><strong>Lampung:</strong> Pukang</li>
+                            <li><strong>Maluku:</strong> Apiong</li>
+                            <li><strong>Nusa Tenggara Barat:</strong> Maggasing</li>
+                            <li><strong>Jambi, Bengkulu, Sumbar & Riau:</strong> Gasing</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-sky-50/70 p-4 rounded-2xl border border-sky-200 shadow-xs">
+                        <h4 class="font-bold text-sky-800 font-kids mb-1.5 text-sm">✨ Nilai Sakral & Makna Bahari:</h4>
+                        <p class="text-xs">Wayah bahari, bagasing dianggap sakral supaya padi (<em>banih</em>) nang ditanam subur wan kada takana hama. Bahari bagasing jua dijadikan wadah baadu harga diri wan batanding ilmu (baisi mantra/doa khusus nang disambat <strong>"baisi"</strong>).</p>
+                    </div>
+
+                    <div class="bg-purple-50/70 p-4 rounded-2xl border border-purple-200 shadow-xs">
+                        <h4 class="font-bold text-purple-800 font-kids mb-1.5 text-sm">🪵 Bahan Utama Kayu:</h4>
+                        <p class="text-xs">Gasing diulah matan kayu batang kopi, manggis, atawa <strong>kamuning</strong>. Batang kayu kamuning adalah nang paling baik marga kayunya karas wan kuat (dijadikan standar lomba). Pambuat gasing terkenal ada di <strong>Desa Asam, Kecamatan Sungai Raya, Kabupaten Hulu Sungai Selatan (HSS)</strong>.</p>
+                    </div>
+
+                    <div class="bg-rose-50/70 p-4 rounded-2xl border border-rose-200 shadow-xs">
+                        <h4 class="font-bold text-rose-800 font-kids mb-1.5 text-sm">⚖️ Jenis Gasing & Perannya:</h4>
+                        <div class="grid grid-cols-2 gap-2.5 text-xs mt-2">
+                            <div class="bg-white p-3 rounded-xl border border-rose-200 text-center shadow-xs">
+                                <span class="font-bold text-rose-700 block font-kids text-sm">Gasing Laki</span>
+                                <span class="text-[11px] text-slate-500 font-bold">(Pinukun/Panukun)</span>
+                                <p class="text-[11px] text-slate-600 mt-1">Kepala taganal, labih tinggi, tugasnya mamukul. Tali ± 60 cm.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-rose-200 text-center shadow-xs">
+                                <span class="font-bold text-rose-700 block font-kids text-sm">Gasing Bini</span>
+                                <span class="text-[11px] text-slate-500 font-bold">(Pamasang)</span>
+                                <p class="text-[11px] text-slate-600 mt-1">Kepala tahalus, dipasang gasan dipukul. Tali ± 2 meter.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 text-xs shadow-xs">
+                        <h4 class="font-bold text-amber-900 font-kids mb-1.5 text-sm">🎮 Aturan & Arena Pamainan:</h4>
+                        <p class="leading-relaxed">Tali gasing bahari diulah matan <em>serat daun kanas (nanas)</em>, wahini memakai nilon. Arena pamainan disebut <strong>lapik</strong> (papan/meja) atawa tanah rata bergaris melingkar. Pamulaan baadu gasing bini disebut <strong>balandangan</strong>. Pamanang ditentukan ulih gasing nang paling lawas baputar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: KAMUS MINI (GLOSARIUM) -->
+        <section id="sec-kamus" class="space-y-4 hidden">
+            <div class="bg-emerald-100 border-2 border-emerald-300 p-3.5 rounded-2xl flex items-center space-x-3 shadow-sm">
+                <span class="text-3xl">📚</span>
+                <div>
+                    <h2 class="font-kids font-bold text-emerald-900 text-base">Kamus Mini Banjar - Indonesia</h2>
+                    <p class="text-xs text-emerald-800 font-medium">Cari artian kata Bahasa Banjar di sini!</p>
+                </div>
+            </div>
+
+            <!-- Search input -->
+            <div class="relative">
+                <input type="text" id="dictionarySearch" onkeyup="filterDictionary()" placeholder="Cari kata Banjar atau Indonesia..." class="w-full pl-10 pr-4 py-3 rounded-2xl border-2 border-emerald-300 focus:outline-none focus:border-emerald-500 text-sm font-semibold shadow-sm bg-white">
+                <i class="fas fa-search absolute left-3.5 top-3.5 text-emerald-500 text-base"></i>
+            </div>
+
+            <!-- Glosarium List -->
+            <div id="dictionaryList" class="space-y-2.5">
+                <!-- Javascript will populate this -->
+            </div>
+        </section>
+
+        <!-- SECTION 3: ULANGAN BAB (QUIZ INTERAKTIF) -->
+        <section id="sec-quiz" class="space-y-4 hidden">
+            
+            <!-- Warning Banner When Active Quiz -->
+            <div id="activeQuizLockBanner" class="hidden bg-rose-500 text-white p-3.5 rounded-2xl shadow-md border-2 border-rose-700 flex items-center justify-between animate-pulse">
+                <div class="flex items-center space-x-2 text-xs">
+                    <span class="text-xl">🔒</span>
+                    <div>
+                        <strong class="font-kids font-bold block text-sm">Mode Ulangan Aktif</strong>
+                        <span class="text-[11px] opacity-90">Materi dan Kamus dikunci sampai ulangan dikumpulkan!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Start Header Card & Student Info Form -->
+            <div id="quizIntroCard" class="bg-white rounded-3xl p-5 border-2 border-amber-300 shadow-md text-center space-y-4">
+                <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-3xl mx-auto border-2 border-amber-300 animate-bounce">
+                    🏆
+                </div>
+                <div>
+                    <h2 class="font-kids font-bold text-xl text-amber-900">Ulangan Harian Bab 3</h2>
+                    <p class="text-xs text-slate-600 mt-1">20 Soal Terstruktur (10 Pilihan Ganda & 10 Menjodohkan)</p>
+                </div>
+
+                <!-- Student Identity Form -->
+                <div class="bg-amber-50 p-4 rounded-2xl text-left space-y-3 border border-amber-200">
+                    <h3 class="font-kids font-bold text-amber-900 text-xs uppercase tracking-wider border-b border-amber-200 pb-1">👤 Isi Identitas Siswa Sebelum Ulangan:</h3>
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-700 mb-1">Nama Lengkap Siswa:</label>
+                        <input type="text" id="inputStudentName" placeholder="Contoh: Muhammad Rizky" class="w-full px-3 py-2.5 rounded-xl border border-amber-300 focus:outline-none focus:border-amber-500 text-xs font-semibold bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-700 mb-1">Kelas / Nomor Absen:</label>
+                        <input type="text" id="inputStudentClass" placeholder="Contoh: 6A / Absen 14" class="w-full px-3 py-2.5 rounded-xl border border-amber-300 focus:outline-none focus:border-amber-500 text-xs font-semibold bg-white">
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 p-3 rounded-2xl text-left text-xs space-y-1.5 border border-amber-200">
+                    <p class="font-bold text-amber-800">📌 Sistem Pembobotan Nilai (Total Max = 100):</p>
+                    <div class="flex justify-between items-center bg-white p-2 rounded-xl border border-amber-100">
+                        <span class="text-emerald-700 font-bold">🟢 Easy / Mudah (10 Soal)</span>
+                        <span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-lg font-bold">3 Poin / Soal</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-white p-2 rounded-xl border border-amber-100">
+                        <span class="text-amber-700 font-bold">🟡 Medium / Sedang (6 Soal)</span>
+                        <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-lg font-bold">5 Poin / Soal</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-white p-2 rounded-xl border border-amber-100">
+                        <span class="text-rose-700 font-bold">🔴 Hard / HOTS (4 Soal)</span>
+                        <span class="bg-rose-100 text-rose-800 px-2 py-0.5 rounded-lg font-bold">10 Poin / Soal</span>
+                    </div>
+                </div>
+
+                <button onclick="validateAndStartQuiz()" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-kids font-bold py-3.5 px-6 rounded-2xl shadow-lg custom-shadow-lg text-lg border-2 border-amber-600 btn-bounce flex items-center justify-center space-x-2">
+                    <span>Mulai Kerjakan Ulangan</span>
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+
+            <!-- Active Quiz Container -->
+            <div id="quizActiveContainer" class="hidden space-y-4">
+                
+                <!-- Quiz Navigation Bar -->
+                <div class="bg-white rounded-2xl p-3 border-2 border-amber-200 shadow-sm flex items-center justify-between text-xs">
+                    <span id="quizProgressText" class="font-bold font-kids text-amber-800 text-sm">Soal 1 / 20</span>
+                    <span id="quizBadgeDifficulty" class="px-2.5 py-1 rounded-full font-bold text-[11px]">🟢 Easy</span>
+                </div>
+
+                <!-- Multiple Choice Area (Soal 1-10) -->
+                <div id="mcContainer" class="bg-white rounded-3xl p-5 border-2 border-amber-300 shadow-sm space-y-4">
+                    <p id="mcQuestionText" class="font-bold text-slate-800 text-sm md:text-base leading-snug">Soal pilihan ganda...</p>
+                    
+                    <div id="mcOptionsContainer" class="space-y-2.5">
+                        <!-- 4 Options injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Matching Game Area (Soal 11-20) -->
+                <div id="matchingContainer" class="hidden bg-white rounded-3xl p-4 border-2 border-emerald-300 shadow-sm space-y-3">
+                    <div class="bg-emerald-50 p-2.5 rounded-xl border border-emerald-200 text-xs text-emerald-900">
+                        <strong>🎯 Petunjuk Menjodohkan:</strong> Klik item di <strong>Kolom Kiri</strong>, lalu klik pasangannya yang tepat di <strong>Kolom Kanan</strong>!
+                    </div>
+
+                    <div id="matchingQuestionPrompt" class="font-bold text-xs md:text-sm text-slate-800 bg-amber-50 p-3 rounded-xl border border-amber-200">
+                        Soal Menjodohkan...
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2.5 pt-1">
+                        <!-- Left Column Items -->
+                        <div class="space-y-2">
+                            <p class="text-[11px] font-bold text-emerald-800 text-center font-kids uppercase tracking-wider">Kolom Kiri</p>
+                            <div id="matchLeftList" class="space-y-2">
+                                <!-- JS Injected -->
+                            </div>
+                        </div>
+
+                        <!-- Right Column Items -->
+                        <div class="space-y-2">
+                            <p class="text-[11px] font-bold text-blue-800 text-center font-kids uppercase tracking-wider">Kolom Kanan</p>
+                            <div id="matchRightList" class="space-y-2">
+                                <!-- JS Injected -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex justify-between items-center pt-2">
+                    <button id="btnPrev" onclick="prevQuestion()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold font-kids py-2.5 px-4 rounded-xl text-xs flex items-center space-x-1 border border-slate-300 btn-bounce">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Sebelumnya</span>
+                    </button>
+
+                    <button id="btnNext" onclick="nextQuestion()" class="bg-amber-500 hover:bg-amber-600 text-white font-bold font-kids py-2.5 px-5 rounded-xl text-xs flex items-center space-x-1 border border-amber-600 shadow btn-bounce">
+                        <span>Selanjutnya</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+
+                    <button id="btnFinish" onclick="submitQuiz()" class="hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold font-kids py-2.5 px-5 rounded-xl text-xs flex items-center space-x-1 border border-emerald-700 shadow btn-bounce">
+                        <span>Selesai & Kumpul</span>
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Score Result View -->
+            <div id="quizResultCard" class="hidden bg-white rounded-3xl p-6 border-4 border-amber-400 shadow-xl text-center space-y-5">
+                <div id="resultBadgeIcon" class="w-20 h-20 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center text-4xl mx-auto border-4 border-amber-300 shadow-inner">
+                    🌟
+                </div>
+
+                <div>
+                    <h3 class="font-kids font-bold text-2xl text-slate-800">Hasil Ulangan Harian</h3>
+                    <p id="resultStudentIdentityDisplay" class="text-xs font-bold text-amber-900 bg-amber-100 inline-block px-3 py-1 rounded-full mt-1"></p>
+                    <p id="resultMotivationalMsg" class="text-xs font-bold text-amber-800 mt-2 px-2">Luar biasa! Terus tingkatkan prestasimu!</p>
+                </div>
+
+                <!-- Score Box -->
+                <div class="bg-gradient-to-br from-amber-500 to-yellow-500 text-white p-5 rounded-3xl border-2 border-amber-600 shadow-md">
+                    <span class="text-[11px] uppercase tracking-widest font-bold opacity-90">Nilai Akhir Anda</span>
+                    <div id="finalScoreDisplay" class="font-kids text-5xl font-black my-1">100</div>
+                    <span class="text-xs font-semibold">dari total 100 poin</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
+                        <span class="text-emerald-600 block font-bold">Benar</span>
+                        <span id="correctCountText" class="font-bold text-emerald-800 text-lg">20 Soal</span>
+                    </div>
+                    <div class="bg-rose-50 p-3 rounded-2xl border border-rose-200">
+                        <span class="text-rose-600 block font-bold">Salah / Kosong</span>
+                        <span id="wrongCountText" class="font-bold text-rose-800 text-lg">0 Soal</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-2 pt-2">
+                    <button onclick="showReviewModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-kids font-bold py-3 px-4 rounded-2xl shadow border-2 border-blue-700 text-xs md:text-sm btn-bounce flex items-center justify-center space-x-2">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Lihat Pembahasan / Kunci Jawaban</span>
+                    </button>
+                    <button onclick="resetQuiz()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-kids font-bold py-3 px-4 rounded-2xl shadow border-2 border-amber-600 text-xs md:text-sm btn-bounce flex items-center justify-center space-x-2">
+                        <i class="fas fa-redo"></i>
+                        <span>Ulangi Ulangan</span>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION 4: DASHBOARD GURU (REKAP NILAI) -->
+        <section id="sec-guru" class="space-y-4 hidden">
+            <div class="bg-amber-600 text-white p-4 rounded-2xl flex items-center justify-between shadow-md border-2 border-amber-700">
+                <div class="flex items-center space-x-3">
+                    <span class="text-3xl">👨‍🏫</span>
+                    <div>
+                        <h2 class="font-kids font-bold text-lg text-yellow-100">Dashboard Guru</h2>
+                        <p class="text-xs text-amber-100">Rekapitulasi Nilai Ulangan Siswa</p>
+                    </div>
+                </div>
+                <button onclick="lockTeacherDashboard()" class="bg-amber-800 hover:bg-amber-900 text-white px-3 py-1.5 rounded-xl text-xs font-bold btn-bounce border border-amber-600">
+                    <i class="fas fa-lock mr-1"></i> Keluar
+                </button>
+            </div>
+
+            <!-- Dashboard Stats & Actions -->
+            <div class="bg-white rounded-3xl p-4 border-2 border-amber-200 shadow-sm space-y-3">
+                <div class="flex justify-between items-center border-b pb-2 text-xs">
+                    <span class="font-bold text-slate-700">Total Siswa Ulangan: <strong id="totalSiswaCount" class="text-amber-600 text-sm">0</strong></span>
+                    <button onclick="exportRecapCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded-xl text-xs shadow flex items-center space-x-1 btn-bounce">
+                        <i class="fas fa-file-excel"></i>
+                        <span>Ekspor ke CSV</span>
+                    </button>
+                </div>
+
+                <!-- Table Container -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-amber-100 text-amber-900 font-kids">
+                                <th class="p-2 border border-amber-200 rounded-tl-xl">Siswa</th>
+                                <th class="p-2 border border-amber-200">Kelas/Absen</th>
+                                <th class="p-2 border border-amber-200 text-center">Nilai</th>
+                                <th class="p-2 border border-amber-200 rounded-tr-xl">Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teacherTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pt-2 border-t flex justify-end">
+                    <button onclick="clearRecapData()" class="bg-rose-500 hover:bg-rose-600 text-white font-bold px-3 py-1.5 rounded-xl text-xs flex items-center space-x-1 btn-bounce">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Hapus Semua Rekap Data</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ANTI-CHEATING WARNING MODAL -->
+    <div id="cheatWarningModal" class="fixed inset-0 bg-slate-900/80 z-50 flex items-center justify-center p-4 hidden backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-xs w-full p-5 shadow-2xl border-4 border-rose-500 text-center space-y-4 animate-bounce">
+            <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-3xl mx-auto border-2 border-rose-300">
+                🔒
+            </div>
+            <div>
+                <h3 class="font-kids font-bold text-lg text-rose-900">Materi Terkunci!</h3>
+                <p class="text-xs font-bold text-slate-700 mt-2 leading-relaxed">
+                    Materi dikunci selama ulangan berlangsung! Selesaikan dan kumpulkan ulangan terlebih dahulu.
+                </p>
+            </div>
+            <button onclick="closeCheatWarningModal()" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-kids font-bold py-2.5 rounded-xl text-xs shadow border border-rose-700 btn-bounce">
+                Saya Mengerti
+            </button>
+        </div>
+    </div>
+
+    <!-- PIN MODAL FOR TEACHER DASHBOARD (NO HINTS / CLEAN UI) -->
+    <div id="pinModal" class="fixed inset-0 bg-slate-900/70 z-50 flex items-center justify-center p-4 hidden backdrop-blur-sm overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-xs w-full p-5 shadow-2xl border-4 border-amber-400 text-center space-y-4 my-auto">
+            <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-2xl mx-auto border-2 border-amber-300">
+                🔒
+            </div>
+            <div>
+                <h3 class="font-kids font-bold text-lg text-slate-800">Akses Dashboard Guru</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Masukkan PIN Keamanan Guru</p>
+            </div>
+            <input type="password" id="pinInput" placeholder="Masukkan PIN..." maxlength="10" class="w-full text-center text-lg font-bold py-2.5 rounded-xl border-2 border-amber-300 focus:outline-none focus:border-amber-500 tracking-widest bg-white">
+            
+            <div class="flex space-x-2">
+                <button onclick="closePinModal()" class="w-1/2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2.5 rounded-xl text-xs btn-bounce">Batal</button>
+                <button onclick="verifyTeacherPin()" class="w-1/2 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl text-xs btn-bounce border border-amber-600">Masuk</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- REVIEW / PEMBAHASAN MODAL -->
+    <div id="reviewModal" class="fixed inset-0 bg-slate-900/70 z-50 flex items-center justify-center p-4 hidden backdrop-blur-sm overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-sm w-full my-auto flex flex-col shadow-2xl border-4 border-amber-400 overflow-hidden">
+            <div class="bg-amber-500 text-white p-4 flex justify-between items-center border-b-2 border-amber-600">
+                <h3 class="font-kids font-bold text-base flex items-center space-x-2">
+                    <span>📝 Kunci Jawaban & Pembahasan</span>
+                </h3>
+                <button onclick="closeReviewModal()" class="w-8 h-8 bg-amber-700 rounded-full text-white font-bold text-sm hover:bg-amber-800 flex items-center justify-center">✕</button>
+            </div>
+
+            <div id="reviewListContainer" class="p-4 modal-scroll-overlay space-y-3 text-xs flex-grow">
+                <!-- JS populated review cards -->
+            </div>
+
+            <div class="p-3 bg-amber-50 border-t border-amber-200 text-center">
+                <button onclick="closeReviewModal()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-kids font-bold py-2.5 rounded-xl border border-amber-600 text-xs">Tutup Pembahasan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAVIGATION BAR FOR MOBILE -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t-2 border-amber-300 rounded-t-2xl shadow-lg z-40 p-2 grid grid-cols-4 gap-1">
+        <button id="navMateri" onclick="switchTab('materi')" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-amber-600 bg-amber-50 font-bold transition-all">
+            <i id="iconMateri" class="fas fa-book-open text-base mb-0.5"></i>
+            <span class="text-[10px] font-kids">Materi</span>
+        </button>
+        <button id="navKamus" onclick="switchTab('kamus')" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-amber-600 font-bold transition-all">
+            <i id="iconKamus" class="fas fa-spell-check text-base mb-0.5"></i>
+            <span class="text-[10px] font-kids">Kamus</span>
+        </button>
+        <button id="navQuiz" onclick="switchTab('quiz')" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-amber-600 font-bold transition-all">
+            <i id="iconQuiz" class="fas fa-gamepad text-base mb-0.5"></i>
+            <span class="text-[10px] font-kids">Ulangan</span>
+        </button>
+        <button id="navGuru" onclick="openTeacherDashboardModal()" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-amber-600 font-bold transition-all">
+            <i class="fas fa-user-tie text-base mb-0.5"></i>
+            <span class="text-[10px] font-kids">Guru</span>
+        </button>
+    </nav>
+
+    <script>
+        let soundEnabled = true;
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+        let isTeacherUnlocked = false;
+        let isQuizActive = false; // Anti-cheating state flag
+        const TEACHER_PIN = "456*";
+
+        let currentStudent = {
+            name: "",
+            studentClass: ""
+        };
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('soundIcon');
+            const btn = document.getElementById('soundToggleBtn');
+            if (soundEnabled) {
+                icon.className = 'fas fa-volume-up';
+                btn.className = 'w-10 h-10 bg-amber-700 hover:bg-amber-800 text-amber-100 rounded-xl flex items-center justify-center text-lg btn-bounce shadow border border-amber-500';
+            } else {
+                icon.className = 'fas fa-volume-mute';
+                btn.className = 'w-10 h-10 bg-slate-400 text-white rounded-xl flex items-center justify-center text-lg btn-bounce shadow border border-slate-500';
+            }
+        }
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+
+                if (type === 'click') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    osc.frequency.exponentialRampToValueAtTime(800, now + 0.05);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'correct') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.setValueAtTime(659.25, now + 0.1);
+                    osc.frequency.setValueAtTime(783.99, now + 0.2);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'wrong') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.setValueAtTime(180, now + 0.12);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'fanfare') {
+                    const notes = [523.25, 659.25, 783.99, 1046.50];
+                    notes.forEach((freq, idx) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, now + (idx * 0.12));
+                        gain.gain.setValueAtTime(0.25, now + (idx * 0.12));
+                        gain.gain.exponentialRampToValueAtTime(0.01, now + (idx * 0.12) + 0.25);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + (idx * 0.12));
+                        osc.stop(now + (idx * 0.12) + 0.25);
+                    });
+                }
+            } catch (e) {
+                console.log('Audio error:', e);
+            }
+        }
+
+        const dictionaryData = [
+            { banjar: "Pamainanan", indo: "Permainan / Mainan", desc: "Aktivitas gasan hiburan atawa olahraga." },
+            { banjar: "Diulah", indo: "Dibuat / Diciptakan", desc: "Proses pembuatannya memakai bahan tertentu." },
+            { banjar: "Matan", indo: "Dari", desc: "Kata depan penunjuk asal tempat atau bahan." },
+            { banjar: "Baputar", indo: "Berputar", desc: "Gerakan melingkar pada gasing." },
+            { banjar: "Kakanakan", indo: "Anak-anak", desc: "Anak usia sekolah dasar atau balita." },
+            { banjar: "Urang Tuha", indo: "Orang Tua / Dewasa", desc: "Orang yang sudah dewasa." },
+            { banjar: "Baharinya", indo: "Zaman dahulu", desc: "Masa lalu atau zaman kuno." },
+            { banjar: "Banih", indo: "Padi", desc: "Tanaman penghasil beras." },
+            { banjar: "Bahuma", indo: "Bercocok tanam / Bertani", desc: "Pekerjaan menanam padi di sawah." },
+            { banjar: "Wayah ini / Wahini", indo: "Sekarang / Masa kini", desc: "Waktu zaman sekarang." },
+            { banjar: "Kamuning", indo: "Kayu Kemuning", desc: "Jenis kayu keras standar lomba gasing Kalsel." },
+            { banjar: "Taganal", indo: "Lebih besar", desc: "Ukuran fisik gasing laki." },
+            { banjar: "Tahalus", indo: "Lebih kecil", desc: "Ukuran fisik gasing bini." },
+            { banjar: "Manukun", indo: "Memukul / Menyerang", desc: "Tugas gasing laki memukul gasing bini." },
+            { banjar: "Lapik", indo: "Arena / Papan Landasan", desc: "Wadah rata tempat memutar gasing." },
+            { banjar: "Balandangan", indo: "Adu putar gasing awal", desc: "Penentuan siapa yang memasang/memukul." },
+            { banjar: "Baisi", indo: "Punya / Bersi doa ilmu gaib", desc: "Mantra/doa khusus gaib zaman bahari." },
+            { banjar: "Saikung", indo: "Satu orang", desc: "Hitungan tunggal untuk orang." }
+        ];
+
+        /* TOTAL SCORE WEIGHTING = 10 Easy @ 3pts (30) + 6 Medium @ 5pts (30) + 4 Hard @ 10pts (40) = 100 PTS MAX */
+        const questionsData = [
+            // --- MULTIPLE CHOICE (SOAL 1-10) ---
+            {
+                id: 1,
+                type: "mc",
+                difficulty: "easy",
+                points: 3,
+                question: "1. Pamainan bagasing marupakan pamainan tradisional khas daerah mana?",
+                options: ["A. Kalimantan Selatan", "B. Jawa Barat", "C. Sulawesi Selatan", "D. Sumatera Barat"],
+                answer: 0, // A
+                explanation: "Bagasing adalah pamainan tradisional khas masyarakat Kalimantan Selatan."
+            },
+            {
+                id: 2,
+                type: "mc",
+                difficulty: "easy",
+                points: 3,
+                question: "2. Gasing marupakan alat pamainan nang diulah matan bahan utama apa?",
+                options: ["A. Kaca tebal", "B. Kayu batang pohon", "C. Besi baja", "D. Plastik tipis"],
+                answer: 1, // B
+                explanation: "Gasing marupakan alat pamainan nang diulah matan kayu batang pohon."
+            },
+            {
+                id: 3,
+                type: "mc",
+                difficulty: "easy",
+                points: 3,
+                question: "3. Apa sambatan pamainan gasing ulih masyarakat di Lampung?",
+                options: ["A. Gangsing", "B. Apiong", "C. Pukang", "D. Maggasing"],
+                answer: 2, // C
+                explanation: "Masyarakat Lampung menyambat gasing wan istilah 'Pukang'."
+            },
+            {
+                id: 4,
+                type: "mc",
+                difficulty: "easy",
+                points: 3,
+                question: "4. Jenis gasing nang baisi bagian kepala taganal wan ukurannya labih tinggi disambat...",
+                options: ["A. Gasing Bini", "B. Gasing Lapik", "C. Gasing Pamasang", "D. Gasing Laki"],
+                answer: 3, // D
+                explanation: "Gasing laki baisi bentuk kepala taganal wan ukurannya labih tinggi dibanding gasing bini."
+            },
+            {
+                id: 5,
+                type: "mc",
+                difficulty: "easy",
+                points: 3,
+                question: "5. Baharinya, tali gasing tradisional diulah matan serat daun apa?",
+                options: ["A. Daun kanas (nanas)", "B. Daun pisang", "C. Daun kelapa", "D. Daun pandan"],
+                answer: 0, // A
+                explanation: "Tali gasing tradisional diulah matan serat daun kanas (nanas) nang tua wan panjang."
+            },
+            {
+                id: 6,
+                type: "mc",
+                difficulty: "medium",
+                points: 5,
+                question: "6. Jenis kayu batang pohon apa nang paling baik wan manjadi standar gasan lomba bagasing di Kalsel?",
+                options: ["A. Kayu Jati", "B. Kayu Kamuning", "C. Kayu Ulin", "D. Kayu Mahoni"],
+                answer: 1, // B
+                explanation: "Batang kayu kamuning paling baik diulah gasing marga kayunya karas wan kuat."
+            },
+            {
+                id: 7,
+                type: "mc",
+                difficulty: "medium",
+                points: 5,
+                question: "7. Desa mana di Kabupaten Hulu Sungai Selatan (HSS) nang terkenal warganya pambuat gasing kayu kamuning?",
+                options: ["A. Desa Martapura", "B. Desa Pemurus", "C. Desa Asam, Kec. Sungai Raya", "D. Desa Lok Baintan"],
+                answer: 2, // C
+                explanation: "Warga Desa Asam di Kecamatan Sungai Raya Kabupaten HSS terkenal baulah gasing matan kayu kamuning."
+            },
+            {
+                id: 8,
+                type: "mc",
+                difficulty: "medium",
+                points: 5,
+                question: "8. Berapa panjang tali nang diparluakan khusus gasan mamutar gasing bini?",
+                options: ["A. Sakitar 30 cm", "B. Sakitar 60 cm", "C. Sakitar 1 meter", "D. Sakitar 2 meter"],
+                answer: 3, // D
+                explanation: "Gasing bini mamarluakan tali nang labih panjang, yaitu sakitar 2 meter."
+            },
+            {
+                id: 9,
+                type: "mc",
+                difficulty: "hard",
+                points: 10,
+                question: "9. Mengapa pamainan bagasing wayah bahari dianggap sakral ulih masyarakat Banjar?",
+                options: [
+                    "A. Marga percaya supaya hasil tanaman banih subur wan kada takana hama",
+                    "B. Marga dipakai gasan syarat memilih kepala desa",
+                    "C. Marga gasingnya dihiasi emas murni",
+                    "D. Marga hanya boleh dimainakan saat gerhana bulan"
+                ],
+                answer: 0, // A
+                explanation: "Bahari bagasing dianggap sakral supaya banih nang ditanam subur, kada takana hama, wan hasil bahuma banyak."
+            },
+            {
+                id: 10,
+                type: "mc",
+                difficulty: "hard",
+                points: 10,
+                question: "10. Apa tujuan diadakannya aturan 'balandangan' pada awal pamainan bagasing?",
+                options: [
+                    "A. Cara malilitakan tali nilon ke gasing",
+                    "B. Baadu gasing bini gasan manantuakan pihak nang mamasang wan nang manukun",
+                    "C. Syarat pembagian hadiah lomba",
+                    "D. Wadah arena dari triplek"
+                ],
+                answer: 1, // B
+                explanation: "Balandangan adalah baadu gasing bini di awal game gasan manantuakan siapa nang pasang wan siapa nang manukun."
+            },
+
+            // --- MATCHING GAME (SOAL 11-20) ---
+            {
+                id: 11,
+                type: "match",
+                difficulty: "easy",
+                points: 3,
+                prompt: "11. Jodohkan Jenis Gasing Laki dengan Perannya:",
+                leftText: "Gasing Laki (Pinukun)",
+                rightOptions: ["Manukun / Mamukul", "Pamasang / Dipukul", "Lapik Papan"],
+                correctRightIndex: 0,
+                explanation: "Gasing Laki disambat jua Pinukun/Panukun marga perannya mamukul gasing bini."
+            },
+            {
+                id: 12,
+                type: "match",
+                difficulty: "easy",
+                points: 3,
+                prompt: "12. Jodohkan Jenis Gasing Bini dengan Perannya:",
+                leftText: "Gasing Bini (Pamasang)",
+                rightOptions: ["Dipasang gasan Dipukul", "Gasing Nang Manukun", "Pamanang Lomba"],
+                correctRightIndex: 0,
+                explanation: "Gasing Bini khusus digunaakan sabagai gasing pamasang (siap menerima pukulan)."
+            },
+            {
+                id: 13,
+                type: "match",
+                difficulty: "easy",
+                points: 3,
+                prompt: "13. Jodohkan Daerah Maluku dengan Sambatan Gasingnya:",
+                leftText: "Masyarakat Maluku",
+                rightOptions: ["Apiong", "Pukang", "Maggasing"],
+                correctRightIndex: 0,
+                explanation: "Di Maluku, pamainan gasing disambat 'Apiong'."
+            },
+            {
+                id: 14,
+                type: "match",
+                difficulty: "easy",
+                points: 3,
+                prompt: "14. Jodohkan Daerah NTB dengan Sambatan Gasing Khasnya:",
+                leftText: "Nusa Tenggara Barat (NTB)",
+                rightOptions: ["Maggasing", "Pukang", "Panggal"],
+                correctRightIndex: 0,
+                explanation: "Masyarakat Nusa Tenggara Barat menyambat gasing dengan nama 'Maggasing'."
+            },
+            {
+                id: 15,
+                type: "match",
+                difficulty: "easy",
+                points: 3,
+                prompt: "15. Jodohkan Bahan Tali Modern dengan Jenis Bahannya:",
+                leftText: "Tali Gasing Modern (Wahini)",
+                rightOptions: ["Bahan Nilon", "Serat Daun Kanas", "Rotan Hutan"],
+                correctRightIndex: 0,
+                explanation: "Wahini tali gasing umumnya diulah matan nilon marga labih praktis."
+            },
+            {
+                id: 16,
+                type: "match",
+                difficulty: "medium",
+                points: 5,
+                prompt: "16. Jodohkan Wadah / Arena Tempat Bermain dengan Istilah Banjarnya:",
+                leftText: "Meja / Papan Triplek Rata",
+                rightOptions: ["Lapik", "Balandangan", "Baisi"],
+                correctRightIndex: 0,
+                explanation: "Wadah arena dari triplek/meja rata tempat memutar gasing disambat 'Lapik'."
+            },
+            {
+                id: 17,
+                type: "match",
+                difficulty: "medium",
+                points: 5,
+                prompt: "17. Jodohkan Pamainan Bagasing dengan Nilai Pendidikan Positifnya:",
+                leftText: "Nilai Pendidikan Bagasing",
+                rightOptions: ["Katangkasan & Satia Kawan", "Membuat Malas", "Suka Marah"],
+                correctRightIndex: 0,
+                explanation: "Bagasing melatih katangkasan olahraga, kajujuran, satia kawan, wan parsahabatan."
+            },
+            {
+                id: 18,
+                type: "match",
+                difficulty: "medium",
+                points: 5,
+                prompt: "18. Jodohkan Bahan Tali Bahari Tradisional dengan Bahannya:",
+                leftText: "Tali Gasing Bahari",
+                rightOptions: ["Serat Daun Kanas", "Kawat Tembaga", "Tali Plastik"],
+                correctRightIndex: 0,
+                explanation: "Tali gasing tradisional bahari diulah matan serat daun kanas (nanas)."
+            },
+            {
+                id: 19,
+                type: "match",
+                difficulty: "hard",
+                points: 10,
+                prompt: "19. Jodohkan Istilah Mantra/Doa Gaib Bahari Sebelum Tanding:",
+                leftText: "Mantra / Doa Gaib Bahari",
+                rightOptions: ["Baisi", "Balandangan", "Manukun"],
+                correctRightIndex: 0,
+                explanation: "Istilah Banjar bahari gasan pemakai doa/mantra pendukung gaib disambat 'baisi'."
+            },
+            {
+                id: 20,
+                type: "match",
+                difficulty: "hard",
+                points: 10,
+                prompt: "20. Jodohkan Syarat Penentu Pemenang Bagasing:",
+                leftText: "Syarat Pamanang Bagasing",
+                rightOptions: ["Gasing Nang Paling Lawas Baputar", "Gasing Paling Besar", "Gasing Paling Warna-warni"],
+                correctRightIndex: 0,
+                explanation: "Pamanang bagasing adalah gasing nang baputar paling lawas (paling lama)."
+            }
+        ];
+
+        let currentQuestionIdx = 0;
+        let userAnswers = {};
+
+        function renderDictionary() {
+            const container = document.getElementById('dictionaryList');
+            container.innerHTML = '';
+            dictionaryData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-3.5 rounded-2xl border-2 border-emerald-100 shadow-xs dict-card space-y-1";
+                card.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="font-kids font-bold text-amber-800 text-base">${item.banjar}</span>
+                        <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Bahasa Banjar</span>
+                    </div>
+                    <p class="text-xs font-bold text-slate-700">Artinya: <span class="text-emerald-700 font-extrabold">${item.indo}</span></p>
+                    <p class="text-[11px] text-slate-500">${item.desc}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterDictionary() {
+            const query = document.getElementById('dictionarySearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.dict-card');
+            cards.forEach((card, idx) => {
+                const item = dictionaryData[idx];
+                if (item.banjar.toLowerCase().includes(query) || item.indo.toLowerCase().includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function switchTab(tabName) {
+            // Anti-cheating guard: block access to materi or kamus while quiz is active
+            if (isQuizActive && (tabName === 'materi' || tabName === 'kamus')) {
+                playSound('wrong');
+                showCheatWarningModal();
+                return;
+            }
+
+            playSound('click');
+            // Hide all main sections
+            document.getElementById('sec-materi').classList.add('hidden');
+            document.getElementById('sec-kamus').classList.add('hidden');
+            document.getElementById('sec-quiz').classList.add('hidden');
+            document.getElementById('sec-guru').classList.add('hidden');
+
+            const navMateri = document.getElementById('navMateri');
+            const navKamus = document.getElementById('navKamus');
+            const navQuiz = document.getElementById('navQuiz');
+            const navGuru = document.getElementById('navGuru');
+
+            const inactiveClass = "flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-amber-600 font-bold transition-all";
+            const activeClass = "flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-amber-600 bg-amber-50 font-bold transition-all";
+
+            navMateri.className = isQuizActive ? `${inactiveClass} tab-locked` : inactiveClass;
+            navKamus.className = isQuizActive ? `${inactiveClass} tab-locked` : inactiveClass;
+            navQuiz.className = inactiveClass;
+            navGuru.className = inactiveClass;
+
+            if (tabName === 'materi') {
+                document.getElementById('sec-materi').classList.remove('hidden');
+                navMateri.className = activeClass;
+            } else if (tabName === 'kamus') {
+                document.getElementById('sec-kamus').classList.remove('hidden');
+                navKamus.className = activeClass;
+            } else if (tabName === 'quiz') {
+                document.getElementById('sec-quiz').classList.remove('hidden');
+                navQuiz.className = activeClass;
+            } else if (tabName === 'guru') {
+                document.getElementById('sec-guru').classList.remove('hidden');
+                navGuru.className = activeClass;
+                renderTeacherDashboard();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showCheatWarningModal() {
+            document.getElementById('cheatWarningModal').classList.remove('hidden');
+        }
+
+        function closeCheatWarningModal() {
+            playSound('click');
+            document.getElementById('cheatWarningModal').classList.add('hidden');
+        }
+
+        function updateNavLockState() {
+            const navMateri = document.getElementById('navMateri');
+            const navKamus = document.getElementById('navKamus');
+            const iconMateri = document.getElementById('iconMateri');
+            const iconKamus = document.getElementById('iconKamus');
+            const banner = document.getElementById('activeQuizLockBanner');
+
+            if (isQuizActive) {
+                navMateri.classList.add('tab-locked');
+                navKamus.classList.add('tab-locked');
+                iconMateri.className = "fas fa-lock text-base mb-0.5 text-rose-500";
+                iconKamus.className = "fas fa-lock text-base mb-0.5 text-rose-500";
+                banner.classList.remove('hidden');
+            } else {
+                navMateri.classList.remove('tab-locked');
+                navKamus.classList.remove('tab-locked');
+                iconMateri.className = "fas fa-book-open text-base mb-0.5";
+                iconKamus.className = "fas fa-spell-check text-base mb-0.5";
+                banner.classList.add('hidden');
+            }
+        }
+
+        function validateAndStartQuiz() {
+            const nameInput = document.getElementById('inputStudentName').value.trim();
+            const classInput = document.getElementById('inputStudentClass').value.trim();
+
+            if (!nameInput || !classInput) {
+                alert("Harap isi Nama Lengkap dan Kelas/Nomor Absen terlebih dahulu sebelum memulai ulangan!");
+                return;
+            }
+
+            currentStudent.name = nameInput;
+            currentStudent.studentClass = classInput;
+
+            startQuiz();
+        }
+
+        function startQuiz() {
+            playSound('click');
+            isQuizActive = true;
+            updateNavLockState();
+
+            document.getElementById('quizIntroCard').classList.add('hidden');
+            document.getElementById('quizActiveContainer').classList.remove('hidden');
+            document.getElementById('quizResultCard').classList.add('hidden');
+            currentQuestionIdx = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questionsData[currentQuestionIdx];
+            
+            document.getElementById('quizProgressText').innerText = `Soal ${currentQuestionIdx + 1} / ${questionsData.length}`;
+            
+            const badge = document.getElementById('quizBadgeDifficulty');
+            if (q.difficulty === 'easy') {
+                badge.innerText = '🟢 Easy (3 Poin)';
+                badge.className = 'px-2.5 py-1 rounded-full font-bold text-[11px] bg-emerald-100 text-emerald-800';
+            } else if (q.difficulty === 'medium') {
+                badge.innerText = '🟡 Medium (5 Poin)';
+                badge.className = 'px-2.5 py-1 rounded-full font-bold text-[11px] bg-amber-100 text-amber-800';
+            } else {
+                badge.innerText = '🔴 Hard/HOTS (10 Poin)';
+                badge.className = 'px-2.5 py-1 rounded-full font-bold text-[11px] bg-rose-100 text-rose-800';
+            }
+
+            if (q.type === 'mc') {
+                document.getElementById('mcContainer').classList.remove('hidden');
+                document.getElementById('matchingContainer').classList.add('hidden');
+
+                document.getElementById('mcQuestionText').innerText = q.question;
+                const optionsContainer = document.getElementById('mcOptionsContainer');
+                optionsContainer.innerHTML = '';
+
+                q.options.forEach((opt, idx) => {
+                    const isSelected = userAnswers[q.id] === idx;
+                    const btn = document.createElement('button');
+                    btn.className = `w-full text-left p-3.5 rounded-2xl border-2 font-semibold text-xs transition-all btn-bounce ${
+                        isSelected 
+                        ? 'bg-amber-500 text-white border-amber-600 shadow-md font-bold' 
+                        : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-amber-50'
+                    }`;
+                    btn.innerText = opt;
+                    btn.onclick = () => {
+                        playSound('click');
+                        userAnswers[q.id] = idx;
+                        renderQuestion();
+                    };
+                    optionsContainer.appendChild(btn);
+                });
+            } else if (q.type === 'match') {
+                document.getElementById('mcContainer').classList.add('hidden');
+                document.getElementById('matchingContainer').classList.remove('hidden');
+
+                document.getElementById('matchingQuestionPrompt').innerText = q.prompt;
+
+                const leftList = document.getElementById('matchLeftList');
+                const rightList = document.getElementById('matchRightList');
+                leftList.innerHTML = '';
+                rightList.innerHTML = '';
+
+                const currentAns = userAnswers[q.id];
+                const leftBtn = document.createElement('div');
+                leftBtn.className = `w-full p-3 rounded-2xl border-2 font-bold text-xs text-center shadow-xs ${
+                    currentAns !== undefined 
+                    ? 'bg-emerald-500 text-white border-emerald-600' 
+                    : 'bg-amber-100 text-amber-900 border-amber-300'
+                }`;
+                leftBtn.innerText = q.leftText;
+                leftList.appendChild(leftBtn);
+
+                q.rightOptions.forEach((opt, idx) => {
+                    const isMatched = currentAns === idx;
+                    const rightBtn = document.createElement('button');
+                    rightBtn.className = `w-full p-3 rounded-2xl border-2 font-semibold text-xs text-center btn-bounce shadow-xs transition-all ${
+                        isMatched 
+                        ? 'bg-blue-600 text-white border-blue-700 font-bold' 
+                        : 'bg-blue-50 text-blue-900 border-blue-200 hover:bg-blue-100'
+                    }`;
+                    rightBtn.innerText = opt;
+                    rightBtn.onclick = () => {
+                        playSound('click');
+                        userAnswers[q.id] = idx;
+                        renderQuestion();
+                    };
+                    rightList.appendChild(rightBtn);
+                });
+            }
+
+            const btnPrev = document.getElementById('btnPrev');
+            const btnNext = document.getElementById('btnNext');
+            const btnFinish = document.getElementById('btnFinish');
+
+            btnPrev.style.visibility = currentQuestionIdx === 0 ? 'hidden' : 'visible';
+
+            if (currentQuestionIdx === questionsData.length - 1) {
+                btnNext.classList.add('hidden');
+                btnFinish.classList.remove('hidden');
+            } else {
+                btnNext.classList.remove('hidden');
+                btnFinish.classList.add('hidden');
+            }
+        }
+
+        function prevQuestion() {
+            playSound('click');
+            if (currentQuestionIdx > 0) {
+                currentQuestionIdx--;
+                renderQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            playSound('click');
+            if (currentQuestionIdx < questionsData.length - 1) {
+                currentQuestionIdx++;
+                renderQuestion();
+            }
+        }
+
+        function submitQuiz() {
+            let totalScore = 0;
+            let correctCount = 0;
+
+            questionsData.forEach(q => {
+                const userAns = userAnswers[q.id];
+                if (q.type === 'mc') {
+                    if (userAns === q.answer) {
+                        totalScore += q.points;
+                        correctCount++;
+                    }
+                } else if (q.type === 'match') {
+                    if (userAns === q.correctRightIndex) {
+                        totalScore += q.points;
+                        correctCount++;
+                    }
+                }
+            });
+
+            // Unlock navigation after submitting quiz
+            isQuizActive = false;
+            updateNavLockState();
+
+            saveQuizResultToLocalStorage({
+                name: currentStudent.name || "Siswa Anonim",
+                studentClass: currentStudent.studentClass || "Tanpa Kelas",
+                score: totalScore,
+                correctCount: correctCount,
+                totalQuestions: questionsData.length,
+                date: new Date().toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' })
+            });
+
+            if (totalScore >= 80) {
+                playSound('fanfare');
+            } else if (totalScore >= 50) {
+                playSound('correct');
+            } else {
+                playSound('wrong');
+            }
+
+            document.getElementById('quizActiveContainer').classList.add('hidden');
+            document.getElementById('quizResultCard').classList.remove('hidden');
+
+            document.getElementById('resultStudentIdentityDisplay').innerText = `👤 ${currentStudent.name} (${currentStudent.studentClass})`;
+            document.getElementById('finalScoreDisplay').innerText = totalScore;
+            document.getElementById('correctCountText').innerText = `${correctCount} Soal`;
+            document.getElementById('wrongCountText').innerText = `${questionsData.length - correctCount} Soal`;
+
+            const badgeIcon = document.getElementById('resultBadgeIcon');
+            const msg = document.getElementById('resultMotivationalMsg');
+
+            if (totalScore >= 90) {
+                badgeIcon.innerText = '🥇';
+                msg.innerText = 'Luar Biasa! Pian Harat Banar! Nilai Sempurna! 🎉🌟';
+            } else if (totalScore >= 75) {
+                badgeIcon.innerText = '🥈';
+                msg.innerText = 'Bagus Banar! Tingkatkan Lagi Belajarnya Lah! ⭐⭐';
+            } else if (totalScore >= 50) {
+                badgeIcon.innerText = '🥉';
+                msg.innerText = 'Cukup Bagus! Bacai Lagi Materinya Supaya Paham! 👍';
+            } else {
+                badgeIcon.innerText = '📚';
+                msg.innerText = 'Ayo Belajar Lagi! Jangan Menyerah Lah! 💪';
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function saveQuizResultToLocalStorage(record) {
+            let history = JSON.parse(localStorage.getItem('banjar_quiz_rekap') || '[]');
+            history.unshift(record);
+            localStorage.setItem('banjar_quiz_rekap', JSON.stringify(history));
+        }
+
+        function openTeacherDashboardModal() {
+            if (isTeacherUnlocked) {
+                switchTab('guru');
+            } else {
+                document.getElementById('pinInput').value = '';
+                document.getElementById('pinModal').classList.remove('hidden');
+            }
+        }
+
+        function closePinModal() {
+            playSound('click');
+            document.getElementById('pinModal').classList.add('hidden');
+        }
+
+        function verifyTeacherPin() {
+            const inputPin = document.getElementById('pinInput').value.trim();
+            if (inputPin === TEACHER_PIN) {
+                playSound('correct');
+                isTeacherUnlocked = true;
+                closePinModal();
+                switchTab('guru');
+            } else {
+                playSound('wrong');
+                alert("PIN Salah! Akses ditolak.");
+            }
+        }
+
+        function lockTeacherDashboard() {
+            playSound('click');
+            isTeacherUnlocked = false;
+            switchTab('materi');
+        }
+
+        function renderTeacherDashboard() {
+            const history = JSON.parse(localStorage.getItem('banjar_quiz_rekap') || '[]');
+            const tbody = document.getElementById('teacherTableBody');
+            document.getElementById('totalSiswaCount').innerText = history.length;
+            tbody.innerHTML = '';
+
+            if (history.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-slate-400 italic">Belum ada data rekap nilai ulangan siswa.</td></tr>`;
+                return;
+            }
+
+            history.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-amber-100 hover:bg-amber-50/50";
+                tr.innerHTML = `
+                    <td class="p-2 font-bold text-slate-800">${item.name}</td>
+                    <td class="p-2 text-slate-600">${item.studentClass}</td>
+                    <td class="p-2 text-center font-bold font-kids ${item.score >= 75 ? 'text-emerald-600' : 'text-amber-600'}">${item.score}</td>
+                    <td class="p-2 text-[10px] text-slate-500">${item.date}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function exportRecapCSV() {
+            const history = JSON.parse(localStorage.getItem('banjar_quiz_rekap') || '[]');
+            if (history.length === 0) {
+                alert("Tidak ada data rekap untuk diekspor!");
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,Nama Siswa,Kelas / Absen,Nilai Akhir,Benar,Waktu Pengerjaan\n";
+            history.forEach(row => {
+                csvContent += `"${row.name}","${row.studentClass}",${row.score},${row.correctCount},"${row.date}"\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `Rekap_Nilai_Bahasa_Banjar_Bab3.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function clearRecapData() {
+            if (confirm("Apakah Anda yakin ingin menghapus seluruh data rekapitulasi nilai siswa?")) {
+                playSound('click');
+                localStorage.removeItem('banjar_quiz_rekap');
+                renderTeacherDashboard();
+            }
+        }
+
+        function showReviewModal() {
+            playSound('click');
+            const container = document.getElementById('reviewListContainer');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const userAns = userAnswers[q.id];
+                let isCorrect = false;
+                let userText = "Belum Dijawab";
+                let correctText = "";
+
+                if (q.type === 'mc') {
+                    isCorrect = (userAns === q.answer);
+                    if (userAns !== undefined) userText = q.options[userAns];
+                    correctText = q.options[q.answer];
+                } else if (q.type === 'match') {
+                    isCorrect = (userAns === q.correctRightIndex);
+                    if (userAns !== undefined) userText = q.rightOptions[userAns];
+                    correctText = q.rightOptions[q.correctRightIndex];
+                }
+
+                const card = document.createElement('div');
+                card.className = `p-3 rounded-2xl border-2 space-y-1.5 ${
+                    isCorrect ? 'bg-emerald-50 border-emerald-300' : 'bg-rose-50 border-rose-300'
+                }`;
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center font-bold font-kids">
+                        <span class="${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Soal #${idx + 1} (${q.points} Poin)</span>
+                        <span class="${isCorrect ? 'bg-emerald-200 text-emerald-900' : 'bg-rose-200 text-rose-900'} px-2 py-0.5 rounded-full text-[10px]">
+                            ${isCorrect ? '✓ Benar' : '✗ Salah'}
+                        </span>
+                    </div>
+                    <p class="font-semibold text-slate-800 text-[11px]">${q.question || q.prompt}</p>
+                    ${q.leftText ? `<p class="text-[11px] text-slate-600"><strong>Item Kiri:</strong> ${q.leftText}</p>` : ''}
+                    <div class="text-[11px] space-y-0.5">
+                        <p class="${isCorrect ? 'text-emerald-700 font-bold' : 'text-rose-700 font-bold'}">Jawaban Anda: ${userText}</p>
+                        ${!isCorrect ? `<p class="text-emerald-800 font-bold">Kunci Jawaban: ${correctText}</p>` : ''}
+                    </div>
+                    <p class="text-[10px] text-slate-600 bg-white/80 p-2 rounded-xl border border-slate-200"><strong>Pembahasan:</strong> ${q.explanation}</p>
+                `;
+
+                container.appendChild(card);
+            });
+
+            document.getElementById('reviewModal').classList.remove('hidden');
+        }
+
+        function closeReviewModal() {
+            playSound('click');
+            document.getElementById('reviewModal').classList.add('hidden');
+        }
+
+        function resetQuiz() {
+            playSound('click');
+            isQuizActive = false;
+            updateNavLockState();
+
+            userAnswers = {};
+            currentQuestionIdx = 0;
+            document.getElementById('quizResultCard').classList.add('hidden');
+            document.getElementById('quizIntroCard').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onload = function() {
+            renderDictionary();
+
+            // Mobile keyboard smoothness: Scroll input into view on focus
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('focus', function() {
+                    setTimeout(() => {
+                        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                });
+            });
+        };
+    </script>
+</body>
+</html>
